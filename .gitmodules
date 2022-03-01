@@ -1,0 +1,3 @@
+[submodule "deps/gravity"]
+	path = deps/gravity
+	url = https://github.com/marcobambini/gravity
