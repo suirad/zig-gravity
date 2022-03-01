@@ -44,6 +44,7 @@ test "basic test using wrappers" {
     defer compiler.deinit();
 
     const closure = try compiler.run(source_code, 0, true, true);
+
     var vm = try gravity.Vm.init(&config);
     defer vm.deinit();
 
@@ -52,7 +53,7 @@ test "basic test using wrappers" {
     if (vm.runmain(closure)) {
         const res = vm.result();
 
-        var buf: [_]u8 = .{0} ** 512;
+        var buf: [512]u8 = .{0} ** 512;
 
         vm.valueDump(res, buf[0..]);
         std.debug.print("RESULT: {s}\n", .{buf});
